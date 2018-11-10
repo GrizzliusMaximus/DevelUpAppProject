@@ -1,12 +1,3 @@
-#define scr_Test
-///test scripts for debugging purposes
-
-#define scr_TestCreate
-mode = 0;
-image_speed = 0;
-sprite_index = spr_house;
-
-#define scr_TestStep
 if (keyboard_check_pressed(ord('Q'))){
     game_restart();
 }
@@ -50,10 +41,10 @@ if (keyboard_check(vk_space)){
     }
     
     if (mode == 0){
-        scr_BuildingDrop(obj_house);
+        BuildingDrop(obj_house);
     }
     else if (mode == 1){
-        scr_BuildingDrop(obj_tile);
+        BuildingDrop(obj_tile);
     }
     /*
     else if (mode == 1){

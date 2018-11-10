@@ -1,10 +1,10 @@
-#define scr_CamControls
+#define CamControls
 x = mouse_x;
 y = mouse_y;
-if (scr_CamMovement()) { return 0; }
-scr_CamZoom();
+if (CamMovement()) { return 0; }
+CamZoom();
 
-#define scr_CamMovement
+#define CamMovement
 if (mouse_check_button_pressed(mb_left)){
     xprev = mouse_x;
     yprev = mouse_y;
@@ -16,7 +16,7 @@ else if (mouse_check_button(mb_left)){
 }
 return 0;
 
-#define scr_CamZoom
+#define CamZoom
 var xdiff = mouse_x-view_xview[0];
 var ydiff = mouse_y-view_yview[0];
 

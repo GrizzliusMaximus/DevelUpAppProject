@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///create
-scr_WorldCreate();
+WorldCreate();
 </string>
           </argument>
         </arguments>
@@ -50,7 +50,7 @@ scr_WorldCreate();
           <argument>
             <kind>1</kind>
             <string>///step
-scr_WorldStep();
+WorldStep();
 depth = -100 -y;
 </string>
           </argument>

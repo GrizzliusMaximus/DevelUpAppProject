@@ -20,12 +20,20 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\scr_WorldCreate.gml</script>
-    <script>scripts\scr_GridToPos.gml</script>
-    <script>scripts\scr_WorldStep.gml</script>
-    <script>scripts\scr_Test.gml</script>
-    <script>scripts\scr_CamControls.gml</script>
-    <script>scripts\scr_BuildingDrop.gml</script>
+    <script>scripts\WorldCreate.gml</script>
+    <script>scripts\WorldStep.gml</script>
+    <script>scripts\CamControls.gml</script>
+    <script>scripts\BuildingDrop.gml</script>
+    <scripts name="Grid-Pos">
+      <script>scripts\GridToPosX.gml</script>
+      <script>scripts\GridToPosY.gml</script>
+      <script>scripts\PosToGridX.gml</script>
+      <script>scripts\PosToGridY.gml</script>
+    </scripts>
+    <scripts name="Test">
+      <script>scripts\TestStep.gml</script>
+      <script>scripts\TestCreate.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
     <object>objects\obj_house</object>
