@@ -1,1 +1,3 @@
-return round((-x+2*y+112)/64);
+var xx = argument0;
+var yy = argument1;
+return round((-xx+2*yy+112)/64);

@@ -7,7 +7,9 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\spr_tile</sprite>
+    <sprite>sprites\spr_water</sprite>
     <sprite>sprites\spr_house</sprite>
+    <sprite>sprites\spr_newbox</sprite>
     <sprite>sprites\spr_empty</sprite>
     <sprites name="old">
       <sprite>sprites\spr_house_old</sprite>
@@ -29,6 +31,8 @@
       <script>scripts\GridToPosY.gml</script>
       <script>scripts\PosToGridX.gml</script>
       <script>scripts\PosToGridY.gml</script>
+      <script>scripts\GridLockX.gml</script>
+      <script>scripts\GridLockY.gml</script>
     </scripts>
     <scripts name="Test">
       <script>scripts\TestStep.gml</script>
@@ -38,6 +42,7 @@
   <objects name="objects">
     <object>objects\obj_house</object>
     <object>objects\obj_tile</object>
+    <object>objects\obj_water</object>
     <object>objects\obj_setup</object>
     <objects name="old">
       <object>objects\obj_box3</object>

@@ -1,1 +1,3 @@
-return round((x-688+2*y)/64);
+var xx = argument0;
+var yy = argument1;
+return round((xx-688+2*yy)/64);

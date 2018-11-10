@@ -1,8 +1,9 @@
+var temp = 0;
 if (keyboard_check_pressed(ord('Q'))){
     game_restart();
 }
 if (keyboard_check(vk_space)){
-    var mode_length = 2;
+    var mode_length = 3;
     if (mouse_wheel_down()){
         mode--;
         if (mode < 0)
@@ -20,6 +21,9 @@ if (keyboard_check(vk_space)){
         }
         else if (mode == 1){
             sprite_index = spr_tile;
+        }
+        else if (mode == 2){
+            sprite_index = spr_water;
         }  
         /*   
         else if (mode == 1){
@@ -39,13 +43,18 @@ if (keyboard_check(vk_space)){
             sprite_index = spr_empty;
         }
     }
-    
-    if (mode == 0){
-        BuildingDrop(obj_house);
-    }
-    else if (mode == 1){
-        BuildingDrop(obj_tile);
-    }
+    //if (PosToGridX(x,y) >= 0 && PosToGridY(x,y) >=0){
+        if (mode == 0){
+            BuildingDrop(obj_house);
+        }
+        else if (mode == 1){
+            BuildingDrop(obj_tile);
+        }
+        else if (mode == 2){
+            BuildingDrop(obj_water);
+        }
+    //}
+       
     /*
     else if (mode == 1){
         var yy = floor(mouse_y/16);
