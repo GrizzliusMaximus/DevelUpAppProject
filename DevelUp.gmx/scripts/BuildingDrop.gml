@@ -24,5 +24,7 @@ x += (xx-x)/1.5;
 y += (yy-y)/1.5;
 if (mouse_check_button_pressed(mb_left)){
    ret = instance_create(xx,yy,obj_id);
+   gui_state = 0;
+   sprite_index = spr_empty;
 }
 return ret;

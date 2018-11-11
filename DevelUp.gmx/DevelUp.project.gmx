@@ -18,12 +18,16 @@
       <sprite>sprites\spr_box</sprite>
       <sprite>sprites\sprite6</sprite>
     </sprites>
+    <sprite>sprites\spr_button</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\WorldCreate.gml</script>
-    <script>scripts\WorldStep.gml</script>
+    <scripts name="World">
+      <script>scripts\WorldCreate.gml</script>
+      <script>scripts\WorldStep.gml</script>
+      <script>scripts\WorldDrawGUI.gml</script>
+    </scripts>
     <script>scripts\CamControls.gml</script>
     <script>scripts\BuildingDrop.gml</script>
     <scripts name="Grid-Pos">
@@ -38,6 +42,12 @@
       <script>scripts\TestStep.gml</script>
       <script>scripts\TestCreate.gml</script>
     </scripts>
+    <script>scripts\ButtonStep.gml</script>
+    <script>scripts\ScriptEmpty.gml</script>
+    <script>scripts\BuildButtonFunc.gml</script>
+    <script>scripts\HouseButtonFunc.gml</script>
+    <script>scripts\TileButtonFunc.gml</script>
+    <script>scripts\DeleteButtonFunc.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_house</object>
@@ -49,6 +59,7 @@
       <object>objects\obj_box2</object>
       <object>objects\obj_box</object>
     </objects>
+    <object>objects\obj_button</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_0</room>

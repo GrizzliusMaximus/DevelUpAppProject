@@ -1,7 +1,4 @@
 var temp = 0;
-if (keyboard_check_pressed(ord('Q'))){
-    game_restart();
-}
 if (keyboard_check(vk_space)){
     var mode_length = 3;
     if (mouse_wheel_down()){

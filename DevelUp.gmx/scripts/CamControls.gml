@@ -1,15 +1,13 @@
 #define CamControls
-x = mouse_x;
-y = mouse_y;
 if (CamMovement()) { return 0; }
 CamZoom();
 
 #define CamMovement
-if (mouse_check_button_pressed(mb_left)){
+if (mouse_check_button_pressed(mb_right)){
     xprev = mouse_x;
     yprev = mouse_y;
 }
-else if (mouse_check_button(mb_left)){
+else if (mouse_check_button(mb_right)){
     view_xview[0] -= mouse_x-xprev;
     view_yview[0] -= mouse_y-yprev;
     return 1;
