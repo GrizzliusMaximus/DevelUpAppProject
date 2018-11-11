@@ -13,6 +13,10 @@ switch(gui_state){
         }
         break;
     case 1:
+        if(keyboard_check_pressed(vk_escape)){
+            gui_state = 0;
+            sprite_index = spr_empty;
+        }
         for(i = 0; i < arrbtn2_size; i++){
             ButtonStep(button2[i]);
         }
