@@ -3,7 +3,9 @@ ypos = PosToGridY(x,y);
 if (keyboard_check_pressed(ord('Q'))){
     game_restart();
 }
-
+if (keyboard_check_pressed(vk_f10)){
+    game_end();
+}
 switch(gui_state){
     case 0:
        // if (TestStep()){ return 0; }
@@ -31,7 +33,7 @@ switch(gui_state){
                 BuildingDrop(obj_house);
                 break;
             case 1:
-                BuildingDrop(obj_tile);
+                BuildingDrop(obj_farmland);
                 break;
             default:
                 if (mouse_check_button_pressed(mb_left)){

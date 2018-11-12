@@ -18,7 +18,7 @@ return 0;
 var xdiff = mouse_x-view_xview[0];
 var ydiff = mouse_y-view_yview[0];
 
-if (mouse_wheel_down() && view_scale < 2){
+if (mouse_wheel_down() && view_scale < 20){
     view_scalew*=1.2;
     view_scaleh*=1.2;
     view_scale *= 1.2;

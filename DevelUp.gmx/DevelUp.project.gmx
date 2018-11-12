@@ -7,8 +7,11 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\spr_tile</sprite>
+    <sprite>sprites\spr_sand</sprite>
     <sprite>sprites\spr_water</sprite>
+    <sprite>sprites\spr_farmland</sprite>
     <sprite>sprites\spr_house</sprite>
+    <sprite>sprites\spr_tree</sprite>
     <sprite>sprites\spr_newbox</sprite>
     <sprite>sprites\spr_empty</sprite>
     <sprites name="old">
@@ -19,6 +22,7 @@
       <sprite>sprites\sprite6</sprite>
     </sprites>
     <sprite>sprites\spr_button</sprite>
+    <sprite>sprites\spr_mountain</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -46,12 +50,17 @@
     <script>scripts\ScriptEmpty.gml</script>
     <script>scripts\BuildButtonFunc.gml</script>
     <script>scripts\HouseButtonFunc.gml</script>
+    <script>scripts\FarmButtonFunc.gml</script>
     <script>scripts\TileButtonFunc.gml</script>
     <script>scripts\DeleteButtonFunc.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_house</object>
+    <object>objects\obj_farmland</object>
+    <object>objects\obj_tree</object>
+    <object>objects\obj_mountain</object>
     <object>objects\obj_tile</object>
+    <object>objects\obj_sand</object>
     <object>objects\obj_water</object>
     <object>objects\obj_setup</object>
     <objects name="old">

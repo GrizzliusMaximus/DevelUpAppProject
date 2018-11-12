@@ -8,20 +8,18 @@ var x2 = x1+xdis;
 var y2 = y1+ydis;
 
 if (point_in_rectangle(mouse_x,mouse_y,x1,y1,x2,y2)){
-    if (mouse_check_button(mb_left)){
+    if (mouse_check_button_pressed(mb_left)){
         button.img = 2;
-        //draw_sprite(spr_button,2,x,y);
     }
-    else{
-        button.img = 1;
-        //draw_sprite(spr_button,1,x,y);
-    }
-    if (mouse_check_button_released(mb_left)){
+    else if (mouse_check_button_released(mb_left) && button.img = 2){
         script_execute(button.func);
     }
+    else if (!mouse_check_button(mb_left)){
+        button.img = 1;
+    }
+   
 }
 else{
     button.img = 0;
-    //draw_sprite(spr_button,0,x,y);
 }
 

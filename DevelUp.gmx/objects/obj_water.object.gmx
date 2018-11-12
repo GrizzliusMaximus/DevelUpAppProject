@@ -25,14 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///create
-image_speed = 0;
+            <string>depth = 100 -y
 </string>
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="3" enumb="2">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -49,7 +46,8 @@ image_speed = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>depth = 100 -y
+            <string>///create
+image_speed = 0;
 </string>
           </argument>
         </arguments>
