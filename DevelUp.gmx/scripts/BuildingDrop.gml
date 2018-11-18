@@ -1,5 +1,5 @@
 obj_id = argument0
-var ret = noone;
+var ret = 0;
 
 //old code
 /*

@@ -77,13 +77,6 @@ depth = -100 -y;
             <string>///draw
 WorldDrawGUI();
 draw_set_color(c_white);
-draw_text(0,0,xpos);
-draw_text(0,16,ypos);
-draw_text(0,32,x);
-draw_text(0,48,y);
-draw_text(0,64,view_scale);
-draw_text(0,80,view_wview[0]);
-draw_text(0,96,view_hview[0]);
 </string>
           </argument>
         </arguments>

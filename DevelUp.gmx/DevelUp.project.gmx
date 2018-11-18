@@ -10,7 +10,7 @@
     <sprite>sprites\spr_sand</sprite>
     <sprite>sprites\spr_water</sprite>
     <sprite>sprites\spr_farmland</sprite>
-    <sprite>sprites\spr_house</sprite>
+    <sprite>sprites\spr_townhall</sprite>
     <sprite>sprites\spr_tree</sprite>
     <sprite>sprites\spr_newbox</sprite>
     <sprite>sprites\spr_empty</sprite>
@@ -22,7 +22,9 @@
       <sprite>sprites\sprite6</sprite>
     </sprites>
     <sprite>sprites\spr_button</sprite>
+    <sprite>sprites\spr_buildbutton</sprite>
     <sprite>sprites\spr_mountain</sprite>
+    <sprite>sprites\spr_house</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -48,11 +50,15 @@
     </scripts>
     <script>scripts\ButtonStep.gml</script>
     <script>scripts\ScriptEmpty.gml</script>
-    <script>scripts\BuildButtonFunc.gml</script>
-    <script>scripts\HouseButtonFunc.gml</script>
-    <script>scripts\FarmButtonFunc.gml</script>
-    <script>scripts\TileButtonFunc.gml</script>
-    <script>scripts\DeleteButtonFunc.gml</script>
+    <scripts name="Button Functions">
+      <script>scripts\BuildButtonFunc.gml</script>
+      <script>scripts\FarmButtonFunc.gml</script>
+      <script>scripts\TileButtonFunc.gml</script>
+      <script>scripts\DeleteButtonFunc.gml</script>
+      <script>scripts\ChangeGUIStateTo2.gml</script>
+      <script>scripts\HouseButtonFunc.gml</script>
+    </scripts>
+    <script>scripts\BuildBuildingFunc.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_house</object>
@@ -69,6 +75,7 @@
       <object>objects\obj_box</object>
     </objects>
     <object>objects\obj_button</object>
+    <object>objects\obj_building</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_0</room>

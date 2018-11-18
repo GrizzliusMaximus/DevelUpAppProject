@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>spr = spr_button;
+spr2 = spr_empty;
 img = 0;
 func = ScriptEmpty;
 </string>

@@ -1,3 +1,3 @@
-gui_state = 2;
-build_mode = 2;
+ChangeGUIStateTo2();
+build_mode = 200;
 sprite_index = spr_empty;
