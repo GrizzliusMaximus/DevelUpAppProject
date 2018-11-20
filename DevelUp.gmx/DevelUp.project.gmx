@@ -25,6 +25,7 @@
     <sprite>sprites\spr_buildbutton</sprite>
     <sprite>sprites\spr_mountain</sprite>
     <sprite>sprites\spr_house</sprite>
+    <sprite>sprites\spr_sawmill</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -33,6 +34,8 @@
       <script>scripts\WorldCreate.gml</script>
       <script>scripts\WorldStep.gml</script>
       <script>scripts\WorldDrawGUI.gml</script>
+      <script>scripts\WorldDraw.gml</script>
+      <script>scripts\GrowthStep.gml</script>
     </scripts>
     <script>scripts\CamControls.gml</script>
     <script>scripts\BuildingDrop.gml</script>
@@ -53,16 +56,24 @@
     <scripts name="Button Functions">
       <script>scripts\BuildButtonFunc.gml</script>
       <script>scripts\FarmButtonFunc.gml</script>
+      <script>scripts\SawmillButtonFunc.gml</script>
       <script>scripts\TileButtonFunc.gml</script>
       <script>scripts\DeleteButtonFunc.gml</script>
       <script>scripts\ChangeGUIStateTo2.gml</script>
       <script>scripts\HouseButtonFunc.gml</script>
+      <scripts name="Wfunctions">
+        <script>scripts\WBuildHouse.gml</script>
+        <script>scripts\WBuildFarm.gml</script>
+        <script>scripts\WBuildSawmill.gml</script>
+      </scripts>
     </scripts>
     <script>scripts\BuildBuildingFunc.gml</script>
+    <script>scripts\MouseLeftOver.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_house</object>
     <object>objects\obj_farmland</object>
+    <object>objects\obj_sawmill</object>
     <object>objects\obj_tree</object>
     <object>objects\obj_mountain</object>
     <object>objects\obj_tile</object>

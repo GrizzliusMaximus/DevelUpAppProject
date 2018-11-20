@@ -1,5 +1,11 @@
 #define WorldCreate
 global.world = self;
+surf_world = -1;
+/*USED FOR BIGGER WORLDS like 200x200
+surf_world2 = -1;
+surf_world3 = -1;
+surf_world4 = -1;
+*/
 //TestCreate();
 image_speed = 0;
 build_mode = 0;
@@ -92,7 +98,7 @@ for (i = 0; i < gridy_size; i++){
 }
 
 #define BuildMenuCreate
-arrbtn2_size = 3;
+arrbtn2_size = 4;
 var i, j;
 var k = 0;
 
@@ -109,10 +115,12 @@ for(i = 100; i <= 180; i += 80){
     }
 }
 
-button2[2].func = DeleteButtonFunc;
+button2[3].func = DeleteButtonFunc;
+button2[2].func = SawmillButtonFunc;
 button2[1].func = FarmButtonFunc;
 button2[0].func = HouseButtonFunc;
 
+button2[2].spr2 = spr_sawmill;
 button2[1].spr2 = spr_farmland;
 button2[0].spr2 = spr_house;
 
@@ -157,7 +165,7 @@ if (m < gridy_size && n < gridx_size){
     tilenum += cum[n+1,m+1];
 }
 //show_debug_message(tilenum-grid[argument0,argument1]);
-return tilenum-grid[argument0,argument1];
+return tilenum;
 
 #define GridCreate2
 gridx_size = argument0+9;
@@ -166,6 +174,7 @@ percent = argument2;
 grid[gridx_size,gridy_size] = 0;
 grid2[gridx_size,gridy_size] = 0;
 cum[gridx_size,gridy_size] = 0;
+tcum[gridx_size,gridy_size] = 0;
 var i, j, k, m, n;
 for (i = gridy_size; i >= 0 ; i--){
     for (j = gridx_size; j >= 0; j--){
@@ -184,6 +193,7 @@ for (i = gridy_size; i >= 0 ; i--){
             grid[j,i] = 0;
         }
         grid2[j,i] = 0;
+        tgrid[j,i] = 0;
         /*
         cum[j,i] = grid[j,i];
         if (i != gridy_size){
@@ -233,39 +243,61 @@ for (i = gridy_size; i >= 0 ; i--){
 
 for (i = 5; i <= gridy_size-5; i++){
     for (j = 5; j <= gridx_size-5; j++){
-        if (grid[j,i] == 1){
-            var tilenum = LandAdjacent2(j,i,2, cum);
+        if (grid[j,i]){
+            var tilenum = LandAdjacent2(j,i,2, cum)-(grid[j,i] > 0);
             if (tilenum - random(4) >=20){
-                instance_create(GridToPosX(j,i),GridToPosY(j,i),obj_tile);
+                //instance_create(GridToPosX(j,i),GridToPosY(j,i),obj_tile);
                 var ran = random(4);
                 if (ran>= 3){
-                    grid2[j,i] = instance_create(GridToPosX(j,i),GridToPosY(j,i),obj_tree);
+                    //grid2[j,i] = 
+                    instance_create(GridToPosX(j,i),GridToPosY(j,i),obj_tree);
+                    grid2[j,i] = 1;
                 }
-                else if (ran >= 2.9 && LandAdjacent2(j,i,1, cum) == 8 && i>5 && i<gridy_size-5 && j>5 && j<gridx_size-5 ){
-                    grid2[j,i] = instance_create(GridToPosX(j,i),GridToPosY(j,i),obj_mountain);
+                else if (ran >= 2.9 && LandAdjacent2(j,i,1, cum)-(grid[j,i] > 0) == 8 && i>5 && i<gridy_size-5 && j>5 && j<gridx_size-5 ){
+                    //grid2[j,i] = 
+                    instance_create(GridToPosX(j,i),GridToPosY(j,i),obj_mountain);
+                    grid2[j,i] = 2;
                 }
             }
             else{
-                instance_create(GridToPosX(j,i),GridToPosY(j,i),obj_sand);
+                //instance_create(GridToPosX(j,i),GridToPosY(j,i),obj_sand);
+                grid[j,i] = 2;
             }
         }
         else{
-            instance_create(GridToPosX(j,i),GridToPosY(j,i),obj_water);
+            //instance_create(GridToPosX(j,i),GridToPosY(j,i),obj_water);
         }
         
     }
 }
 
+for (i = gridy_size; i >= 0 ; i--){
+    for (j = gridx_size; j >= 0; j--){
+        tcum[j,i] = (grid2[j,i] == 1);
+        if (i != gridy_size){
+            tcum[j,i] += tcum[j,i+1];
+        }
+        if (j != gridx_size){
+            tcum[j,i] += tcum[j+1,i];
+        }
+        if (i != gridy_size && j != gridx_size){
+            tcum[j,i] -= tcum[j+1,i+1];
+        }
+    }
+}
+
 #define ResourceCreate
-gold = 1000;
-wood = 1000;
+gold = 500;
+wood = 200;
 food = 0;
+maxwood = 500;
 happiness = 100;
 population = 0;
 maxpop = 0;
 growth = 0;
 maxfood = 500;
 hunger = 0;
+unemployed = 0;
 
 gcount = 0;
 
@@ -273,5 +305,7 @@ woodreq = 0;
 goldreq = 0;
 
 farmnum = 0;
-fcount = 0;
 farmers = 0;
+
+sawmillnum = 0;
+loggers = 0;

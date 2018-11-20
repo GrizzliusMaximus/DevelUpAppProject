@@ -5,11 +5,11 @@ draw_text(0,view_hport[0]-48,view_scale);
 if (gui_state != 1){
     draw_set_color(c_white);
     draw_text(0,0,"gold: " + string(gold));
-    draw_text(0,16,"wood: " + string(wood));
-    draw_text(0,32,"food: " + string(food));
+    draw_text(0,16,"wood: " + string(wood) + "/" + string(maxwood));
+    draw_text(0,32,"food: " + string(food) + "/" + string(maxfood));
     draw_text(0,48,"happ: " + string(happiness));
     draw_text(0,64,"popu: " + string(population) + "/" + string(maxpop));
-    draw_text(0,80,"free: " + string(population-min(population,farmnum)) + "/" + string(population))
+    draw_text(0,80,"free: " + string(unemployed) + "/" + string(population))
     draw_text(0,96,"grow: " + string(growth));
     draw_text(0,112,"hunger: " + string(hunger));
 }
