@@ -26,6 +26,9 @@ switch(gui_state){
         }
         break;
     case 1:
+        if (ButtonStep(button2[10])){
+            break;
+        }
         if(keyboard_check_pressed(vk_escape)){
             gui_state = 0;
             sprite_index = spr_empty;
@@ -35,6 +38,10 @@ switch(gui_state){
         }
         break;
     case 2:
+        CamControls();
+        if (ButtonStep(button2[10])){
+            break;
+        }
         if(keyboard_check_pressed(vk_escape)){
             gui_state = 0;
             sprite_index = spr_empty;
@@ -56,7 +63,6 @@ switch(gui_state){
                 }  
                 break;
         }
-        CamControls();
         break;
         
 }

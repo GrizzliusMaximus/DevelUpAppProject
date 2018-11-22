@@ -2,10 +2,10 @@
 
 
 
-
-farmers = min(population,farmnum);
-loggers = min(population-farmers,sawmillnum);
-unemployed = population-farmers-loggers;
+var pop = floor(population);
+farmers = min(pop,farmnum);
+loggers = min(pop-farmers,sawmillnum);
+unemployed = pop-farmers-loggers;
 
 with (obj_farmland){
     if (fcount >= 100 && MouseLeftOver() && other.food <= other.maxfood-25){
@@ -38,39 +38,39 @@ with (obj_farmland){
 }
 
 with (obj_sawmill){
-    if (fcount >= 12.5 && MouseLeftOver() && other.wood <= other.maxwood-12.5*image_index){
-        other.wood += 12.5*image_index;
-        other.happiness += 12.5*image_index;
-        fcount -= 12.5*image_index;
-        image_index = 0;
+    if (MouseLeftOver()){
+        while(fcount >= 6.25 && other.wood <= other.maxwood-6.25){
+            other.wood += 6.25;
+            other.happiness += 6.25;
+            fcount -= 6.25;
+        }
         isgrow = 0;
+        image_index = floor(fcount/6.25);
     }
     if (other.loggers == 0){
         continue;
     }
-    if (isgrow == 0 && other.gold >= 10){
+    if (isgrow == 0 && other.gold >= 5){
         isgrow = 1;
-        other.gold -= 10;
-        other.happiness += 10;
+        other.gold -= 5;
+        other.happiness += 5;
     }
     if (isgrow){
         if (fcount < 100){
             fcount += 1/600*gfactor;
-            if (floor(fcount/12.5) != image_index){
+            if (floor(fcount/6.25) != image_index){
                 image_index++;
                 isgrow = 0;
             }
         }
         else{
-            image_index = 8;
+            image_index = 16;
         }
         other.loggers--;
     }
 }
-//fcount += farmers/30;
 
-
-
+/*
 var gg = (happiness-population*population*10-hunger*population)/120;
 var pp = population/120;
 if (maxpop == population && gg > 0){
@@ -90,9 +90,18 @@ else if (gcount <= -100 && population > 0){
     gcount += 100
     population--;
 }
+*/
 
-if (population == 0 && happiness < 100){
-    happiness += 1;
+var oldpop = population;
+population +=  (sqrt((happiness-hunger*population)/10)-population)/120;
+population = min(maxpop,population);
+growth = (population-oldpop)*60;
+var pp = pop/120;
+
+if (pop == 0 && happiness < 100){
+    //happiness += 1;
+    show_message("Get Better Scrub");
+    game_restart();
 }
 else{
     happiness -= pp;
@@ -101,12 +110,15 @@ else{
 hunger += pp;
 
 if (food > 0 && hunger > 0){
-    var hh = min(food,hunger);
+    var hh = min(food,pp*2);
     happiness += hh;
     hunger -= hh;
     food -= hh;
     
     gold += hh;
+    if (hunger < 0){
+        hunger = 0;
+    }
     
 }
 

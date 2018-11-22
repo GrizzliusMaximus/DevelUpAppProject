@@ -4,14 +4,14 @@ draw_text(0,view_hport[0]-32,fps_real);
 draw_text(0,view_hport[0]-48,view_scale);
 if (gui_state != 1){
     draw_set_color(c_white);
-    draw_text(0,0,"gold: " + string(gold));
-    draw_text(0,16,"wood: " + string(wood) + "/" + string(maxwood));
-    draw_text(0,32,"food: " + string(food) + "/" + string(maxfood));
-    draw_text(0,48,"happ: " + string(happiness));
-    draw_text(0,64,"popu: " + string(population) + "/" + string(maxpop));
-    draw_text(0,80,"free: " + string(unemployed) + "/" + string(population))
-    draw_text(0,96,"grow: " + string(growth));
-    draw_text(0,112,"hunger: " + string(hunger));
+    draw_text(0,0,"gold: " + string(floor(gold)));
+    draw_text(0,16,"wood: " + string(floor(wood)) + "/" + string(maxwood));
+    draw_text(0,32,"food: " + string(floor(food)) + "/" + string(maxfood));
+    draw_text(0,48,"happ: " + string(floor(happiness)));
+    draw_text(0,64,"popu: " + string(floor(population)) + "/" + string(maxpop));
+    draw_text(0,80,"free: " + string(unemployed) + "/" + string(floor(population)))
+    draw_text(0,96,"grow: " + string(growth) + "/sec");
+    draw_text(0,112,"hunger: " + string(floor(hunger)));
 }
 switch (gui_state){
     case 0:
@@ -33,6 +33,9 @@ switch (gui_state){
                 draw_sprite(spr2,0,x,y);
             }  
         }
-       
+        draw_sprite(button2[10].spr,button2[10].img,button2[10].x,button2[10].y);
+        break;
+    case 2:
+        draw_sprite(button2[10].spr,button2[10].img,button2[10].x,button2[10].y); 
         break;
 }

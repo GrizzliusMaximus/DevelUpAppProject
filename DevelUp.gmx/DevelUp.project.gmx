@@ -22,6 +22,7 @@
       <sprite>sprites\sprite6</sprite>
     </sprites>
     <sprite>sprites\spr_button</sprite>
+    <sprite>sprites\spr_cancel</sprite>
     <sprite>sprites\spr_buildbutton</sprite>
     <sprite>sprites\spr_mountain</sprite>
     <sprite>sprites\spr_house</sprite>
@@ -66,6 +67,7 @@
         <script>scripts\WBuildFarm.gml</script>
         <script>scripts\WBuildSawmill.gml</script>
       </scripts>
+      <script>scripts\CancelButtonFunc.gml</script>
     </scripts>
     <script>scripts\BuildBuildingFunc.gml</script>
     <script>scripts\MouseLeftOver.gml</script>

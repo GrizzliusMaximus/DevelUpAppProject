@@ -14,6 +14,10 @@ view_scale = 1;
 view_scaleh = view_hview[0];
 view_scalew = view_wview[0];
 
+cam_move = 0;
+xprev = mouse_x;
+yprev = mouse_y;
+
 xpos = 0;
 ypos = 0;
 
@@ -29,6 +33,8 @@ arrbtn_size = 1;
 button[0] = instance_create(view_wport[0]-32,view_hport[0]-32,obj_button);
 button[0].func = BuildButtonFunc;
 button[0].spr = spr_buildbutton;
+
+
 
 
 
@@ -98,7 +104,7 @@ for (i = 0; i < gridy_size; i++){
 }
 
 #define BuildMenuCreate
-arrbtn2_size = 4;
+arrbtn2_size = 3;
 var i, j;
 var k = 0;
 
@@ -115,11 +121,15 @@ for(i = 100; i <= 180; i += 80){
     }
 }
 
-button2[3].func = DeleteButtonFunc;
+button2[10] = instance_create(view_wport[0]-32,view_hport[0]-32,obj_button);
+
+button2[10].func = CancelButtonFunc;
+//button2[3].func = DeleteButtonFunc;
 button2[2].func = SawmillButtonFunc;
 button2[1].func = FarmButtonFunc;
 button2[0].func = HouseButtonFunc;
 
+button2[10].spr = spr_cancel;
 button2[2].spr2 = spr_sawmill;
 button2[1].spr2 = spr_farmland;
 button2[0].spr2 = spr_house;

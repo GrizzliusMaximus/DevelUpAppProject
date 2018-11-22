@@ -24,7 +24,7 @@ x += (xx-x)/1.5;
 y += (yy-y)/1.5;
 var gridx = PosToGridX(xx,yy);
 var gridy = PosToGridY(xx,yy);
-if (mouse_check_button_released(mb_left) && gridx >= 0 && gridx < gridx_size && gridy >= 0 && gridy < gridy_size && grid[gridx,gridy] != 0 && grid2[gridx,gridy] == 0){
+if (mouse_check_button_released(mb_left) && !cam_move && gridx >= 0 && gridx < gridx_size && gridy >= 0 && gridy < gridy_size && grid[gridx,gridy] != 0 && grid2[gridx,gridy] == 0){
    ret = instance_create(xx,yy,obj_id);
    grid2[gridx,gridy] = ret;
    gui_state = 0;
