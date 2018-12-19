@@ -4,7 +4,12 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\bgm_1</sound>
+    <sound>sound\sou_click</sound>
+    <sound>sound\bgm_birds</sound>
+    <sound>sound\sou_drop</sound>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_tile</sprite>
     <sprite>sprites\spr_sand</sprite>
@@ -26,6 +31,7 @@
     <sprite>sprites\spr_buildbutton</sprite>
     <sprite>sprites\spr_mountain</sprite>
     <sprite>sprites\spr_house</sprite>
+    <sprite>sprites\spr_warehouse</sprite>
     <sprite>sprites\spr_sawmill</sprite>
   </sprites>
   <backgrounds name="background"/>
@@ -37,6 +43,7 @@
       <script>scripts\WorldDrawGUI.gml</script>
       <script>scripts\WorldDraw.gml</script>
       <script>scripts\GrowthStep.gml</script>
+      <script>scripts\MenuStep.gml</script>
     </scripts>
     <script>scripts\CamControls.gml</script>
     <script>scripts\BuildingDrop.gml</script>
@@ -56,14 +63,18 @@
     <script>scripts\ScriptEmpty.gml</script>
     <scripts name="Button Functions">
       <script>scripts\BuildButtonFunc.gml</script>
+      <script>scripts\WHButtonFunc.gml</script>
       <script>scripts\FarmButtonFunc.gml</script>
       <script>scripts\SawmillButtonFunc.gml</script>
       <script>scripts\TileButtonFunc.gml</script>
       <script>scripts\DeleteButtonFunc.gml</script>
       <script>scripts\ChangeGUIStateTo2.gml</script>
       <script>scripts\HouseButtonFunc.gml</script>
+      <script>scripts\THButtonFunc.gml</script>
       <scripts name="Wfunctions">
         <script>scripts\WBuildHouse.gml</script>
+        <script>scripts\WBuildWH.gml</script>
+        <script>scripts\WBuildTH.gml</script>
         <script>scripts\WBuildFarm.gml</script>
         <script>scripts\WBuildSawmill.gml</script>
       </scripts>
@@ -71,9 +82,14 @@
     </scripts>
     <script>scripts\BuildBuildingFunc.gml</script>
     <script>scripts\MouseLeftOver.gml</script>
+    <script>scripts\MouseRightClick.gml</script>
+    <script>scripts\MouseOver.gml</script>
+    <script>scripts\ButtonHover.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_house</object>
+    <object>objects\obj_warehouse</object>
+    <object>objects\obj_townhall</object>
     <object>objects\obj_farmland</object>
     <object>objects\obj_sawmill</object>
     <object>objects\obj_tree</object>

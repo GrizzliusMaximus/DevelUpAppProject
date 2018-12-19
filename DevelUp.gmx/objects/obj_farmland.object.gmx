@@ -31,7 +31,8 @@ image_speed = 0;
 fcount = 0;
 isgrow = 0;
 gfactor = 0;
-
+farmers = 0;
+max_farmers = 0;
 </string>
           </argument>
         </arguments>

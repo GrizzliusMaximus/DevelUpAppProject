@@ -3,11 +3,9 @@ if (CamMovement()) { return 1; }
 CamZoom();
 
 #define CamMovement
-/*
-if (xprev != mouse_x || yprev != mouse_y){
-    cam_move = 1;
-}
-*/
+
+
+
 
 if (mouse_check_button_pressed(mb_right)){
     xprev = mouse_x;
@@ -15,11 +13,17 @@ if (mouse_check_button_pressed(mb_right)){
     cam_move = 0;
 }
 else if (mouse_check_button(mb_right)){
+    if (xprev != mouse_x || yprev != mouse_y){
+        cam_move = 1;
+    }
     view_xview[0] -= mouse_x-xprev;
     view_yview[0] -= mouse_y-yprev;
+    
     return 1;
 }
-
+else if (mouse_check_button_released(mb_right)){
+    cam_move = 0;
+}
 
 return 0;
 

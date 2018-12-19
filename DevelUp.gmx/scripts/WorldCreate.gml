@@ -15,6 +15,7 @@ view_scaleh = view_hview[0];
 view_scalew = view_wview[0];
 
 cam_move = 0;
+
 xprev = mouse_x;
 yprev = mouse_y;
 
@@ -33,6 +34,10 @@ arrbtn_size = 1;
 button[0] = instance_create(view_wport[0]-32,view_hport[0]-32,obj_button);
 button[0].func = BuildButtonFunc;
 button[0].spr = spr_buildbutton;
+
+audio_channel_num(16)
+audio_play_sound(bgm_1,0,1);
+audio_play_sound(bgm_birds,0,1);
 
 
 
@@ -104,12 +109,13 @@ for (i = 0; i < gridy_size; i++){
 }
 
 #define BuildMenuCreate
-arrbtn2_size = 3;
+arrbtn2_size = 5;
 var i, j;
 var k = 0;
 
-for(i = 100; i <= 180; i += 80){
-    for(j = 100; j <= 500; j += 80){
+
+for(i = 200; i <= 2000; i += 80){
+    for(j = 200; j <= 600; j += 80){
         button2[k] = instance_create(j,i,obj_button);
         k++;
         if (k > arrbtn2_size){
@@ -121,15 +127,30 @@ for(i = 100; i <= 180; i += 80){
     }
 }
 
+/*
+for(i = 200; i <= 2000; i += 80){
+    button2[k] = instance_create(200,i,obj_button);
+    k++;
+    if (k > arrbtn2_size){
+        break;
+    }
+}
+*/
+
+
 button2[10] = instance_create(view_wport[0]-32,view_hport[0]-32,obj_button);
 
 button2[10].func = CancelButtonFunc;
 //button2[3].func = DeleteButtonFunc;
+button2[4].func = WHButtonFunc;
+button2[3].func = THButtonFunc;
 button2[2].func = SawmillButtonFunc;
 button2[1].func = FarmButtonFunc;
 button2[0].func = HouseButtonFunc;
 
 button2[10].spr = spr_cancel;
+button2[4].spr2 = spr_warehouse;
+button2[3].spr2 = spr_townhall;
 button2[2].spr2 = spr_sawmill;
 button2[1].spr2 = spr_farmland;
 button2[0].spr2 = spr_house;
@@ -309,6 +330,16 @@ maxfood = 500;
 hunger = 0;
 unemployed = 0;
 
+housenum = 0;
+housemax = 10;
+housegold = 100;
+housewood = 50;
+
+townhallnum = 0;
+townhallgold = 1000;
+townhallwood = 450;
+
+
 gcount = 0;
 
 woodreq = 0;
@@ -316,6 +347,53 @@ goldreq = 0;
 
 farmnum = 0;
 farmers = 0;
+farmmax = 20;
+farmgold = 50;
+farmwood = 20;
 
 sawmillnum = 0;
 loggers = 0;
+sawmillmax = 10;
+sawmillgold = 50;
+sawmillwood =  50;
+
+warehousenum = 0;
+warehousemax = 0;
+warehousegold = 500;
+warehousewood = 200;
+
+var i;
+for (i = arrbtn2_size; i >= 0; i--){
+    buildnum[i] = 0;
+}
+//warehouse
+buildname[4] = "Warehouse";
+buildgold[4] = 500;
+buildwood[4] = 200;
+buildspr[4] = spr_warehouse;
+buildmax[4] = 0;
+//townhall
+buildname[3] = "Town Hall";
+buildgold[3] = 1000;
+buildwood[3] = 450;
+buildspr[3] = spr_townhall;
+buildmax[3] = 1;
+//sawmill
+buildname[2] = "Sawmill";
+buildgold[2] = 50;
+buildwood[2] = 50;
+buildspr[2] = spr_sawmill;
+buildmax[2] = 10;
+//farm
+buildname[1] = "Farm";
+buildgold[1] = 50;
+buildwood[1] = 20;
+buildspr[1] = spr_farmland;
+buildmax[1] = 20;
+//house
+buildname[0] = "House";
+buildgold[0] = 100;
+buildwood[0] = 50;
+buildspr[0] = spr_house;
+buildmax[0] = 10;
+

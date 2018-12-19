@@ -16,6 +16,7 @@ with (obj_farmland){
         image_index = 0;
     }
     if (other.farmers == 0){
+        farmers = 0;
         continue;
     }
     if (isgrow == 0 && other.gold >= 10){
@@ -31,6 +32,7 @@ with (obj_farmland){
         else{
             image_index = 8;
         }
+        farmers = 1;
         other.farmers--;
     }
     
@@ -48,6 +50,7 @@ with (obj_sawmill){
         image_index = floor(fcount/6.25);
     }
     if (other.loggers == 0){
+        logger = 0;
         continue;
     }
     if (isgrow == 0 && other.gold >= 5){
@@ -66,6 +69,7 @@ with (obj_sawmill){
         else{
             image_index = 16;
         }
+        logger = 1;
         other.loggers--;
     }
 }

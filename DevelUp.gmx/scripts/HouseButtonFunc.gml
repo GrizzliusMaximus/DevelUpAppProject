@@ -1,4 +1,7 @@
-BuildBuildingFunc(spr_house,0,100,50);
+if (housenum < housemax)
+    BuildBuildingFunc(0);
+else
+    show_message("Build/Upgrade your Town Hall for more houses.");
 /*
 var gg = 100;
 var ww = 50;

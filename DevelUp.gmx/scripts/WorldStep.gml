@@ -3,6 +3,7 @@ instance_activate_all();
 xpos = PosToGridX(x,y);
 ypos = PosToGridY(x,y);
 GrowthStep();
+MenuStep();
 if (keyboard_check_pressed(ord('Q'))){
     surface_free(surf_world);
     /*
@@ -18,15 +19,15 @@ if (keyboard_check_pressed(vk_f10)){
 
 
 switch(gui_state){
-    case 0:
+    case 0: //default
        // if (TestStep()){ return 0; }
         CamControls();
         for(i = 0; i < arrbtn_size; i++){
             ButtonStep(button[i]);
         }
         break;
-    case 1:
-        if (ButtonStep(button2[10])){
+    case 1: //build menu
+        if (ButtonStep(button2[10])){ //cancel button
             break;
         }
         if(keyboard_check_pressed(vk_escape)){
@@ -37,11 +38,12 @@ switch(gui_state){
             ButtonStep(button2[i]);
         }
         break;
-    case 2:
+    case 2: //build drop
         CamControls();
         if (ButtonStep(button2[10])){
             break;
         }
+        
         if(keyboard_check_pressed(vk_escape)){
             gui_state = 0;
             sprite_index = spr_empty;
@@ -55,6 +57,12 @@ switch(gui_state){
                 break;
             case 2:
                 WBuildSawmill();
+                break;
+            case 3:
+                WBuildTH();
+                break;
+            case 4:
+                WBuildWH();
                 break;
             default:
                 if (mouse_check_button_pressed(mb_left)){

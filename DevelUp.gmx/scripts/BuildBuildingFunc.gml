@@ -1,7 +1,8 @@
-var spr = argument0;
-var b_mo = argument1;
-var gg = argument2;
-var ww = argument3;
+
+var b_mo = argument0;
+var spr = buildspr[b_mo];
+var gg = buildgold[b_mo];
+var ww = buildwood[b_mo];
 if (gold < gg || wood < ww){
     show_message("NOT ENOUGH RESOURCES");
     exit;

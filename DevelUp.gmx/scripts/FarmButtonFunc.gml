@@ -1,4 +1,7 @@
-BuildBuildingFunc(spr_farmland,1,50,20);
+if (farmnum < farmmax)
+    BuildBuildingFunc(1);
+else
+    show_message("Build/Upgrade your Town Hall for more farms.");
 /*
 var gg = 100;
 var ww = 50;

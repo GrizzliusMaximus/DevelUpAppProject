@@ -12,10 +12,12 @@ var ret = 0;
 
 if (point_in_rectangle(mouse_x,mouse_y,x1,y1,x2,y2)){
     if (mouse_check_button_pressed(mb_left)){
+        audio_play_sound(sou_click,0,0);
         button.img = 2;
     }
     else if (mouse_check_button_released(mb_left) && button.img = 2){
         script_execute(button.func);
+        
         ret = 1;
     }
     else if (!mouse_check_button(mb_left)){

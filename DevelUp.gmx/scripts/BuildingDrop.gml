@@ -24,10 +24,19 @@ x += (xx-x)/1.5;
 y += (yy-y)/1.5;
 var gridx = PosToGridX(xx,yy);
 var gridy = PosToGridY(xx,yy);
-if (mouse_check_button_released(mb_left) && !cam_move && gridx >= 0 && gridx < gridx_size && gridy >= 0 && gridy < gridy_size && grid[gridx,gridy] != 0 && grid2[gridx,gridy] == 0){
-   ret = instance_create(xx,yy,obj_id);
-   grid2[gridx,gridy] = ret;
-   gui_state = 0;
-   sprite_index = spr_empty;
+if (!cam_move && gridx >= 0 && gridx < gridx_size && gridy >= 0 && gridy < gridy_size && grid[gridx,gridy] != 0 && grid2[gridx,gridy] == 0){
+    image_blend = c_lime;
+    if (mouse_check_button_released(mb_left)){
+       ret = instance_create(xx,yy,obj_id);
+       grid2[gridx,gridy] = ret;
+       gui_state = 0;
+       sprite_index = spr_empty;
+       audio_play_sound(sou_drop,0,0);
+       image_blend = c_white;
+    }
 }
+else{
+    image_blend = c_red;
+}
+
 return ret;
