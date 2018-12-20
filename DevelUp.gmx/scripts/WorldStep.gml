@@ -64,6 +64,9 @@ switch(gui_state){
             case 4:
                 WBuildWH();
                 break;
+            case 5:
+                WBuildWM();
+                break;
             default:
                 if (mouse_check_button_pressed(mb_left)){
                     instance_destroy(instance_position(GridLockX(mouse_x,mouse_y),GridLockY(mouse_x,mouse_y),all));

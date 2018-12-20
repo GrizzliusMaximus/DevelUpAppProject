@@ -14,6 +14,7 @@ with (obj_farmland){
         other.happiness += 10;
         isgrow = 0;
         image_index = 0;
+        audio_play_sound(sou_collect,0,0);
     }
     if (other.farmers == 0){
         farmers = 0;
@@ -45,9 +46,10 @@ with (obj_sawmill){
             other.wood += 6.25;
             other.happiness += 6.25;
             fcount -= 6.25;
+            isgrow = 0;
+            image_index = floor(fcount/6.25);
+            audio_play_sound(sou_collect,0,0);
         }
-        isgrow = 0;
-        image_index = floor(fcount/6.25);
     }
     if (other.loggers == 0){
         logger = 0;

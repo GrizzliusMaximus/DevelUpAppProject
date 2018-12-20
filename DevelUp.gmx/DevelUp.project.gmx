@@ -9,6 +9,8 @@
     <sound>sound\sou_click</sound>
     <sound>sound\bgm_birds</sound>
     <sound>sound\sou_drop</sound>
+    <sound>sound\sou_collect</sound>
+    <sound>sound\bgm_title</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_tile</sprite>
@@ -27,14 +29,20 @@
       <sprite>sprites\sprite6</sprite>
     </sprites>
     <sprite>sprites\spr_button</sprite>
+    <sprite>sprites\spr_buttonsmall</sprite>
+    <sprite>sprites\spr_start</sprite>
+    <sprite>sprites\spr_quit</sprite>
     <sprite>sprites\spr_cancel</sprite>
     <sprite>sprites\spr_buildbutton</sprite>
     <sprite>sprites\spr_mountain</sprite>
     <sprite>sprites\spr_house</sprite>
     <sprite>sprites\spr_warehouse</sprite>
     <sprite>sprites\spr_sawmill</sprite>
+    <sprite>sprites\spr_windmill</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\bg_title</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="World">
@@ -64,6 +72,7 @@
     <scripts name="Button Functions">
       <script>scripts\BuildButtonFunc.gml</script>
       <script>scripts\WHButtonFunc.gml</script>
+      <script>scripts\WMButtonFunc.gml</script>
       <script>scripts\FarmButtonFunc.gml</script>
       <script>scripts\SawmillButtonFunc.gml</script>
       <script>scripts\TileButtonFunc.gml</script>
@@ -73,6 +82,7 @@
       <script>scripts\THButtonFunc.gml</script>
       <scripts name="Wfunctions">
         <script>scripts\WBuildHouse.gml</script>
+        <script>scripts\WBuildWM.gml</script>
         <script>scripts\WBuildWH.gml</script>
         <script>scripts\WBuildTH.gml</script>
         <script>scripts\WBuildFarm.gml</script>
@@ -85,9 +95,11 @@
     <script>scripts\MouseRightClick.gml</script>
     <script>scripts\MouseOver.gml</script>
     <script>scripts\ButtonHover.gml</script>
+    <script>scripts\MainMenuCreate.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_house</object>
+    <object>objects\obj_windmill</object>
     <object>objects\obj_warehouse</object>
     <object>objects\obj_townhall</object>
     <object>objects\obj_farmland</object>
@@ -105,8 +117,10 @@
     </objects>
     <object>objects\obj_button</object>
     <object>objects\obj_building</object>
+    <object>objects\obj_mainmenu</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_main</room>
     <room>rooms\rm_0</room>
   </rooms>
   <help>

@@ -1,4 +1,4 @@
-if (farmnum < farmmax)
+if (buildnum[1] < buildmax[1])
     BuildBuildingFunc(1);
 else
     show_message("Build/Upgrade your Town Hall for more farms.");

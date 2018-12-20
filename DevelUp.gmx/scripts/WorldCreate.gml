@@ -109,7 +109,7 @@ for (i = 0; i < gridy_size; i++){
 }
 
 #define BuildMenuCreate
-arrbtn2_size = 5;
+arrbtn2_size = 6;
 var i, j;
 var k = 0;
 
@@ -142,6 +142,7 @@ button2[10] = instance_create(view_wport[0]-32,view_hport[0]-32,obj_button);
 
 button2[10].func = CancelButtonFunc;
 //button2[3].func = DeleteButtonFunc;
+button2[5].func = WMButtonFunc;
 button2[4].func = WHButtonFunc;
 button2[3].func = THButtonFunc;
 button2[2].func = SawmillButtonFunc;
@@ -149,6 +150,7 @@ button2[1].func = FarmButtonFunc;
 button2[0].func = HouseButtonFunc;
 
 button2[10].spr = spr_cancel;
+button2[5].spr2 = spr_windmill;
 button2[4].spr2 = spr_warehouse;
 button2[3].spr2 = spr_townhall;
 button2[2].spr2 = spr_sawmill;
@@ -366,6 +368,13 @@ var i;
 for (i = arrbtn2_size; i >= 0; i--){
     buildnum[i] = 0;
 }
+
+//windmill
+buildname[5] = "Windmill";
+buildgold[5] = 200;
+buildwood[5] = 100;
+buildspr[5] = spr_windmill;
+buildmax[5] = 0;
 //warehouse
 buildname[4] = "Warehouse";
 buildgold[4] = 500;
@@ -396,4 +405,3 @@ buildgold[0] = 100;
 buildwood[0] = 50;
 buildspr[0] = spr_house;
 buildmax[0] = 10;
-

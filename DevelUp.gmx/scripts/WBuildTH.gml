@@ -11,5 +11,7 @@ if (BuildingDrop(obj_townhall)){
     buildmax[1]+= 10;
     buildmax[2]+= 10;
     buildmax[0]+= 10;
+    buildmax[4]+= 5;
+    buildmax[5]+= 5;
     TakeReq();
 }
