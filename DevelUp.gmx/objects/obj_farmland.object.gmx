@@ -33,6 +33,9 @@ isgrow = 0;
 gfactor = 0;
 farmers = 0;
 max_farmers = 0;
+automax = 2000;
+autocnt = automax;
+autodec = 0;
 </string>
           </argument>
         </arguments>

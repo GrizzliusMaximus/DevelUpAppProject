@@ -39,9 +39,14 @@
     <sprite>sprites\spr_warehouse</sprite>
     <sprite>sprites\spr_sawmill</sprite>
     <sprite>sprites\spr_windmill</sprite>
+    <sprite>sprites\sprite24</sprite>
+    <sprite>sprites\spr_start2</sprite>
+    <sprite>sprites\spr_quit2</sprite>
+    <sprite>sprites\spr_credits</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_title</background>
+    <background>background\bg_main</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">

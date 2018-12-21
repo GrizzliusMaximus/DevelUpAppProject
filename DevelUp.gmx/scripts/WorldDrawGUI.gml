@@ -1,9 +1,10 @@
 var i;
+/*
 draw_text(0,view_hport[0]-16,fps);
 draw_text(0,view_hport[0]-32,fps_real);
 draw_text(0,view_hport[0]-48,view_scale);
 draw_text(0,view_hport[0]-64,cam_move);
-
+*/
 
 
 switch (gui_state){

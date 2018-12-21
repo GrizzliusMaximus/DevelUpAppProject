@@ -6,6 +6,8 @@ with (obj_house){
 with (obj_farmland){
     if (MouseRightClick()){
         show_message("Farmers: " + string(farmers));
+        show_message("audodec: " + string(autodec));
+        show_message("autocnt: " + string(autocnt));
     }
 }
 with (obj_sawmill){

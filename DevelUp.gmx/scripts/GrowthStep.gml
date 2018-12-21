@@ -5,16 +5,23 @@
 var pop = floor(population);
 farmers = min(pop,farmnum);
 loggers = min(pop-farmers,sawmillnum);
-unemployed = pop-farmers-loggers;
+millers = min(floor((pop-farmers-loggers)/4)*4,buildnum[5]*4);
+unemployed = pop-farmers-loggers-millers;
 
 with (obj_farmland){
-    if (fcount >= 100 && MouseLeftOver() && other.food <= other.maxfood-25){
+    if(autocnt){
+        autocnt -= autodec;   
+    }
+    if (fcount >= 100 && (MouseLeftOver() || autocnt <= 0) && other.food <= other.maxfood-25){
         fcount = 0;
         other.food += 25;
         other.happiness += 10;
         isgrow = 0;
         image_index = 0;
         audio_play_sound(sou_collect,0,0);
+        if (autocnt <= 0){
+            autocnt = automax;
+        }
     }
     if (other.farmers == 0){
         farmers = 0;
@@ -74,6 +81,37 @@ with (obj_sawmill){
         logger = 1;
         other.loggers--;
     }
+}
+
+with (obj_windmill){
+     if (pactive != active){
+        pactive = active;
+        var i, j;
+        var xx = PosToGridX(x,y);
+        var yy = PosToGridY(x,y);
+        for (i = -2; i <= 2; i++){
+            for (j = -2; j <= 2; j++){
+                if (i == 0 && j == 0)
+                    continue;
+                var ff = instance_position(GridToPosX(xx+j,yy+i),GridToPosY(xx+j,yy+i),obj_farmland);
+                if (ff != noone){
+                      if (active){
+                        ff.autodec += 1;
+                      }
+                      else{
+                        ff.autodec -= 1;
+                      }
+                }
+            }
+        }
+    }
+    if (other.millers == 0){
+        active = 0;
+        image_speed = 0;
+        continue;
+    }
+    image_speed = 0.2;
+    active = 1;  
 }
 
 /*

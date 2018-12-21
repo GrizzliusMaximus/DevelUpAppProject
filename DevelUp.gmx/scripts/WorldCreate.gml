@@ -1,6 +1,7 @@
 #define WorldCreate
 global.world = self;
 surf_world = -1;
+randomize();
 /*USED FOR BIGGER WORLDS like 200x200
 surf_world2 = -1;
 surf_world3 = -1;
@@ -40,6 +41,8 @@ audio_play_sound(bgm_1,0,1);
 audio_play_sound(bgm_birds,0,1);
 
 
+tutorial = 0;
+tutactive = 1;
 
 
 
@@ -368,6 +371,8 @@ var i;
 for (i = arrbtn2_size; i >= 0; i--){
     buildnum[i] = 0;
 }
+
+millers = 0;
 
 //windmill
 buildname[5] = "Windmill";
