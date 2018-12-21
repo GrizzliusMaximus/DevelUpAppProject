@@ -112,6 +112,7 @@ with (obj_windmill){
     }
     image_speed = 0.2;
     active = 1;  
+    other.millers-=4;
 }
 
 /*
